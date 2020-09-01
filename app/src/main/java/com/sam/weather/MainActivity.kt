@@ -2,6 +2,7 @@ package com.sam.weather
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -24,6 +25,10 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         //Navigation NavController
         navController = Navigation.findNavController(this, R.id.myNavHostFragment)
+
+        if (Control.isFirstTime == false){
+            Toast.makeText(MyApplication.appContext, "歡迎回來", Toast.LENGTH_SHORT).show()
+        }
 
     }
 }

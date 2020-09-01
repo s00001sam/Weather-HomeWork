@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.sam.weather.Control
 import com.sam.weather.MainViewModel
 import com.sam.weather.data.weather.TimeData
 import com.sam.weather.databinding.FragmentHomeBinding
@@ -60,7 +61,7 @@ class HomeFragment : Fragment() {
                 viewModel.onDetailNavigated()
             }
         })
-
+        Logger.d("Control.isFirstTime=${Control.isFirstTime}")
         return binding.root
     }
 
