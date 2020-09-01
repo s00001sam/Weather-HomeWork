@@ -27,7 +27,6 @@ class HomeFragment : Fragment() {
         binding.viewModel = viewModel
 
 
-
         return binding.root
     }
 

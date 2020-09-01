@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.sam.gogozoo.ext.getVmFactory
 import com.sam.weather.databinding.ActivityMainBinding
+import com.sam.weather.util.Logger
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +24,10 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         //Navigation NavController
         navController = Navigation.findNavController(this, R.id.myNavHostFragment)
+
+        viewModel.weatherResult.observe(this, Observer {
+            Logger.d("weatherResult=$it")
+        })
 
     }
 }
