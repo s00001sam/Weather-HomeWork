@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.sam.weather.Control
 import com.sam.weather.MainViewModel
 import com.sam.weather.data.weather.TimeData
+import com.sam.weather.data.weather.WeatherElement
 import com.sam.weather.databinding.FragmentHomeBinding
 import com.sam.weather.ext.getVmFactory
 import com.sam.weather.util.Logger
@@ -41,14 +42,7 @@ class HomeFragment : Fragment() {
             it?.let {
                 it.records.location[0].weatherElement.forEach {element ->
                     if (element.elementName == MINT){
-                        val newList = mutableListOf<TimeData>()
-                        element.time.forEachIndexed { index, timeData ->
-                            val blankTime = TimeData()
-                            newList.add(timeData)
-                            if (index!=element.time.size-1){
-                                newList.add(blankTime)
-                            }
-                        }
+                        val newList = viewModel.makeFakeTimes(element)
                         (binding.rcyHome.adapter as HomeAdapter).submitList(newList)
                     }
                 }

@@ -15,6 +15,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import com.sam.weather.data.*
 import com.sam.weather.data.weather.TimeData
+import com.sam.weather.data.weather.WeatherElement
 
 class HomeViewModel(private val repository: Repository) : ViewModel() {
 
@@ -40,6 +41,18 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
 
     fun onDetailNavigated() {
         _navigateToDetail.value = null
+    }
+
+    fun makeFakeTimes(element: WeatherElement): MutableList<TimeData> {
+        val newList = mutableListOf<TimeData>()
+        element.time.forEachIndexed { index, timeData ->
+            val blankTime = TimeData()
+            newList.add(timeData)
+            if (index != element.time.size - 1) {
+                newList.add(blankTime)
+            }
+        }
+        return newList
     }
 
 }
