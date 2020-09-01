@@ -4,7 +4,7 @@ import android.app.Activity
 import android.view.Gravity
 import android.widget.Toast
 import com.sam.weather.MyApplication
-import com.sam.weather.ViewModelFactory
+import com.sam.weather.factory.ViewModelFactory
 
 
 fun Activity.getVmFactory(): ViewModelFactory {

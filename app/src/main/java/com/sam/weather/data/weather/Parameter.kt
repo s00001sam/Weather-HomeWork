@@ -6,5 +6,5 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Parameter(
     val parameterName: String? = null,
-    val parameterValue: String? = null
+    val parameterUnit: String? = null
 ): Parcelable

@@ -13,9 +13,26 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import com.sam.weather.data.*
+import com.sam.weather.data.weather.TimeData
 
 class HomeViewModel(private val repository: Repository) : ViewModel() {
 
+    // Handle navigation to detail
+    private val _navigateToDetail = MutableLiveData<TimeData>()
 
+    val navigateToDetail: LiveData<TimeData>
+        get() = _navigateToDetail
+
+    init {
+
+    }
+
+    fun navigateToDetail(time: TimeData) {
+        _navigateToDetail.value = time
+    }
+
+    fun onDetailNavigated() {
+        _navigateToDetail.value = null
+    }
 
 }

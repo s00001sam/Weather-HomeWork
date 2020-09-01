@@ -7,5 +7,5 @@ import kotlinx.android.parcel.Parcelize
 data class TimeData(
     val startTime: String? = null,
     val endTime: String? = null,
-    val parameter: Parameter
+    val parameter: Parameter = Parameter()
 ):Parcelable

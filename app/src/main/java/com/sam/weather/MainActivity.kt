@@ -25,9 +25,5 @@ class MainActivity : AppCompatActivity() {
         //Navigation NavController
         navController = Navigation.findNavController(this, R.id.myNavHostFragment)
 
-        viewModel.weatherResult.observe(this, Observer {
-            Logger.d("weatherResult=$it")
-        })
-
     }
 }
